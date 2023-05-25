@@ -1,5 +1,6 @@
 from __future__ import annotations
 import os
+import sys
 
 from dotenv import load_dotenv, dotenv_values
 import openai
@@ -58,12 +59,16 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
 
 def main():
-    prompt_list: list[str] = ['You are a AI and will answer as a AI',
+    prompt_list: list[str] = ['You are a cat and will answer as a cat',
                               '\nHuman: What time is it?',
-                              '\nAI: I have no idea, I\'m a AI!']
+                              '\nAI: I have no idea, I\'m a cat!']
 
     while True:
         user_input: str = input('You: ')
+
+        if user_input.lower() == 'exit':
+            sys.exit()
+
         response: str = get_bot_response(user_input, prompt_list)
         print(f'Bot: {response}')
 
