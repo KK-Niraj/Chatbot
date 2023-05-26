@@ -83,7 +83,7 @@ def main():
 
                 f_obj.close()
 
-            df = pd.DataFrame(lst)
+            df = pd.DataFrame(f_obj)
             df.to_csv('data.csv')
             sys.exit()
 
